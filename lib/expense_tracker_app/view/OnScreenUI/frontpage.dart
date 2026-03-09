@@ -1,6 +1,4 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:provider_app/expense_tracker_app/view/HomeUI/home_page.dart';
 import 'package:provider_app/expense_tracker_app/view/HomeUI/bottom_nav.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 

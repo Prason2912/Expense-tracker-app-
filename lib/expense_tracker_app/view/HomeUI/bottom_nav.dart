@@ -1,11 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:provider_app/expense_tracker_app/view/HomeUI/account_page.dart';
 import 'package:provider_app/expense_tracker_app/view/HomeUI/home_page.dart';
 import 'package:provider_app/expense_tracker_app/view/HomeUI/walletpage.dart';
 import 'package:provider_app/expense_tracker_app/widget/transaction_list.dart';
-
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -18,67 +16,68 @@ class _HomeScreenState extends State<HomeScreen> {
   int currentIndex = 0;
 
   final List<Widget> _states = [
-    HomePage(),
-    TransactionList(),
-    Walletpage(),
-    AccountPage(),
+    const HomePage(),
+    const TransactionList(),
+    const Walletpage(),
+    const AccountPage(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.teal.shade200,
-      body:
-      _states[currentIndex],
-      bottomNavigationBar:
-      Container(
-        color: Colors.teal.shade600,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
-          child: GNav(
-              gap: 5,
-              backgroundColor: Colors.teal.shade600,
-              tabBackgroundColor: Colors.teal.shade200,
-              activeColor: Colors.white,
-              color: Colors.teal.shade200,
-              padding: EdgeInsets.all(16),
-              onTabChange: (index){
+      backgroundColor: Colors.grey.shade50,
+      body: _states[currentIndex],
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              blurRadius: 20,
+              color: Colors.black.withOpacity(.1),
+            )
+          ],
+        ),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
+            child: GNav(
+              rippleColor: Colors.grey[300]!,
+              hoverColor: Colors.grey[100]!,
+              gap: 8,
+              activeColor: Colors.teal.shade700,
+              iconSize: 24,
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              duration: const Duration(milliseconds: 400),
+              tabBackgroundColor: Colors.teal.withOpacity(0.1),
+              color: Colors.grey.shade600,
+              tabs: const [
+                GButton(
+                  icon: Icons.home_rounded,
+                  text: 'Home',
+                ),
+                GButton(
+                  icon: Icons.bar_chart_rounded,
+                  text: 'History',
+                ),
+                GButton(
+                  icon: Icons.account_balance_wallet_rounded,
+                  text: 'Wallet',
+                ),
+                GButton(
+                  icon: Icons.person_rounded,
+                  text: 'Profile',
+                ),
+              ],
+              selectedIndex: currentIndex,
+              onTabChange: (index) {
                 setState(() {
-                  currentIndex=index;
+                  currentIndex = index;
                 });
-
               },
-              tabs: [
-                GButton(icon: Icons.home,
-                  text: "Home",),
-                GButton(icon: Icons.pie_chart,
-                    text: "Transaction"),
-                GButton(icon: Icons.wallet,text: "Wallet",),
-                GButton(icon: Icons.person,text: "Account",),
-              ]),
+            ),
+          ),
         ),
-      )
-     /* Container(
-        color: Colors.white,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
-          child: GNav(
-            gap: 5,
-              backgroundColor: Colors.white,
-              tabBackgroundColor: Colors.teal.shade200,
-              activeColor: Colors.white,
-              color: Colors.teal.shade200,
-              padding: EdgeInsets.all(16),
-              tabs: [
-                 GButton(icon: Icons.home,
-                 text: "Home",),
-                GButton(icon: Icons.pie_chart,
-                text: "Transaction"),
-                GButton(icon: Icons.search,text: "Search",),
-                GButton(icon: Icons.person,text: "Account",),
-              ]),
-        ),
-      )*/
+      ),
     );
   }
 }
