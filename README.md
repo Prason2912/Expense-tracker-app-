@@ -15,7 +15,6 @@ A clean and intuitive **Expense Tracker** built with Flutter using **Provider** 
   </tr>
 </table>
 
-> 📌 *Add your screenshots in a `/screenshots` folder in the root of the project*
 
 ---
 
@@ -133,12 +132,6 @@ Contributions are welcome! Feel free to open an issue or submit a pull request.
 
 **Prason**
 - GitHub: [@Prason2912](https://github.com/Prason2912)
-
----
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
